@@ -6,6 +6,41 @@
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
 	<title>Lindegårdens Brugskunst | Fransk og nordisk landstil og loppefund. </title>
 	<meta name="description" content="Lindegårdens Brugskunst ved Birthe Lind, salg af Brugskunst i fransk nordisk landstil og unikke loppefund.">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.ihavecookies.js"></script>
+    <script type="text/javascript">
+    var options = {
+        title: '&#x1F36A; Accept Cookies & Privacy Policy?',
+        message: 'There are no cookies used on this site, but if there were this message could be customised to provide more details. Click the <strong>accept</strong> button below to see the optional callback in action...',
+        delay: 600,
+        expires: 1,
+        link: '#privacy',
+        onAccept: function(){
+            var myPreferences = $.fn.ihavecookies.cookie();
+            console.log('Yay! The following preferences were saved...');
+            console.log(myPreferences);
+        },
+        uncheckBoxes: true,
+        acceptBtnLabel: 'Accept Cookies',
+        moreInfoLabel: 'More information',
+        cookieTypesTitle: 'Select which cookies you want to accept',
+        fixedCookieTypeLabel: 'Essential',
+        fixedCookieTypeDesc: 'These are essential for the website to work correctly.'
+    }
+
+    $(document).ready(function() {
+        $('body').ihavecookies(options);
+
+        if ($.fn.ihavecookies.preference('marketing') === true) {
+            console.log('This should run because marketing is accepted.');
+        }
+
+        $('#ihavecookiesBtn').on('click', function(){
+            $('body').ihavecookies(options, 'reinit');
+        });
+    });
+
+    </script>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css">
@@ -54,7 +89,7 @@
 	<main class="">
 		<div class="container">
 			<div class="row custom-row">
-				<div class="col-lg-5">
+				<div class="col-lg-6">
 					<h1 id="overskrift">Lindegården</h1>
 					<p>
 						Bliv inspireret og få nye ideer til hyggelige borddekorationer og sammensæt nyt og gammelt så det skaber noget unikt til dit hjem.
@@ -65,7 +100,7 @@
 					</p>
 				</div>
 <div class="col-lg-1"></div>
-				<div class="col-lg-6">
+				<div class="col-lg-5">
 					<h1>Nyheder</h1>
 					<div class="fb-page" data-href="https://www.facebook.com/Lindegaardenbrugskunst/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Lindegaardenbrugskunst/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Lindegaardenbrugskunst/">Lindegårdens Brugskunst</a></blockquote></div>
 
@@ -133,7 +168,7 @@
 
 
 	</footer>
-
+    
 
 	<!--Nedenstående script er lånt fra Facebook for developers-->
 
